@@ -1,0 +1,25 @@
+extraction:
+  cpp:
+     prepare:
+        packages: 
+          - build-essential
+          - gcc-multilib
+          - g++-multilib
+          - wget
+          - curl
+     configure:
+        command:
+          - wget http://media.steampowered.com/client/runtime/steam-runtime-sdk_latest.tar.xz
+          - tar xvf steam-runtime-sdk_latest.tar.xz
+          - mv steam-runtime-sdk_2013-09-05 steam-runtime
+          - cd steam-runtime
+          - ./setup.sh --target=i386 --release --auto-update
+          - mkdir /valve
+          - ln -s $PWD /valve/steam-runtime
+          - cd ../mp/src
+          - ./createallprojects
+      index:
+        build_command:
+          - cd ../mp/src
+          - /valve/steam-runtime/shell.sh --arch=i386 make -f everything.mak
+          
