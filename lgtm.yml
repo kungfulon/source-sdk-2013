@@ -19,4 +19,5 @@ extraction:
      index:
         build_command:
           - cd mp/src
-          - ../../steam-runtime/shell.sh --arch=i386 make -f everything.mak
+          - ../../steam-runtime/shell.sh --arch=i386
+          - STEAM_RUNTIME_PATH=$PWD/../../steam-runtime make -f everything.mak
