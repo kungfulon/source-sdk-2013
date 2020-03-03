@@ -18,8 +18,7 @@ extraction:
           - ln -s $PWD /valve/steam-runtime
           - cd ../mp/src
           - ./createallprojects
-      index:
+     index:
         build_command:
           - cd ../mp/src
           - /valve/steam-runtime/shell.sh --arch=i386 make -f everything.mak
-          
