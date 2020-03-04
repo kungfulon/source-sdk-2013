@@ -15,10 +15,10 @@ extraction:
           - cd steam-runtime
           - ./setup.sh --target=i386 --release --auto-update
           - cd ../mp/src
-          - ./createallprojects
+          - ./creategameprojects
      index:
         build_command:
           - cd mp/src
           - export STEAM_RUNTIME_PATH=$PWD/../../steam-runtime
           - export MAKE_JOBS=-j8
-          - ../../steam-runtime/shell.sh --arch=i386 make -f everything.mak
+          - ../../steam-runtime/shell.sh --arch=i386 make -f games.mak
